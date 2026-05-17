@@ -68,7 +68,7 @@ export function LandingPage() {
 
               <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
                 Design Your Dream Home with{" "}
-                <span className="text-gold">Smart AI</span>
+                <span className="text-gold">Archint</span>
               </h1>
 
               <p className="text-xl text-white/80 leading-relaxed">
@@ -80,7 +80,7 @@ export function LandingPage() {
                   onClick={() => navigate("/login")}
                   className="group px-8 py-4 rounded-xl bg-gold text-gold-foreground hover:bg-gold/90 shadow-2xl shadow-gold/30 transition-all flex items-center gap-2"
                 >
-                  Start Smart AI Plan
+                  Start Archint
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <button className="px-8 py-4 rounded-xl border-2 border-white/30 text-white hover:bg-white/10 transition-all">
@@ -259,7 +259,7 @@ export function LandingPage() {
               Trusted by Architects & Homeowners
             </h2>
             <p className="text-xl text-muted-foreground">
-              See what our users say about Smart AI Plan
+              See what our users say about Archint
             </p>
           </div>
 
@@ -268,7 +268,7 @@ export function LandingPage() {
               {
                 name: "Sarah Johnson",
                 role: "Architect",
-                content: "Smart AI Plan revolutionized how I approach residential projects. The AI-generated layouts are incredibly precise and creative.",
+                content: "Archint revolutionized how I approach residential projects. The AI-generated layouts are incredibly precise and creative.",
               },
               {
                 name: "Michael Chen",
@@ -373,7 +373,7 @@ export function LandingPage() {
           </div>
 
           <div className="border-t border-white/10 pt-8 text-center text-white/60">
-            <p>&copy; 2026 Smart AI Plan. All rights reserved.</p>
+            <p>&copy; 2026 Archint. All rights reserved.</p>
           </div>
         </div>
       </footer>

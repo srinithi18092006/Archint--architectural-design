@@ -939,7 +939,7 @@ export const DashboardPage: React.FC = () => {
                 </div>
             </div>
             <div className="mt-20 pt-10 border-t border-gray-100 dark:border-gray-900 text-center">
-                <p className="text-xs font-black text-gray-400 uppercase tracking-widest">© 2026 Smart AI Plan. All rights reserved. Intellectual Property of Google DeepMind AI Team.</p>
+                <p className="text-xs font-black text-gray-400 uppercase tracking-widest">© 2026 Archint. All rights reserved. Intellectual Property of Google DeepMind AI Team.</p>
             </div>
         </div>
       </footer>

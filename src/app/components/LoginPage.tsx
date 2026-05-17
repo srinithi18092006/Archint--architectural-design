@@ -71,7 +71,7 @@ export function LoginPage() {
                 Welcome Back
               </h2>
               <p className="text-muted-foreground">
-                Sign in to access your Smart AI Plan dashboard
+                Sign in to access your Archint dashboard
               </p>
             </div>
 

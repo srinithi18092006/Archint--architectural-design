@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router';
 import { useAuth } from '../context/AuthContext';
-import { ArchintNavbar } from './archint/ArchintNavbar';
+import { ArchintNavbar } from './ArchintNavbar';
 import '../../../styles/archint.css';
 
 const features = [
