@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 import { ArchintNavbar } from './ArchintNavbar';
 import '../../../styles/archint.css';
 

@@ -358,7 +358,7 @@ export function LandingPage() {
               <ul className="space-y-3">
                 <li className="flex items-start gap-2 text-white/70">
                   <Mail className="w-5 h-5 flex-shrink-0 mt-0.5" />
-                  <span>info@smartaiplan.com</span>
+                  <span>info@archint.com</span>
                 </li>
                 <li className="flex items-start gap-2 text-white/70">
                   <Phone className="w-5 h-5 flex-shrink-0 mt-0.5" />

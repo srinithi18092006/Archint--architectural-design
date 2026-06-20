@@ -3,8 +3,59 @@ import { useSearchParams, useNavigate } from 'react-router';
 import { ArchintNavbar } from './ArchintNavbar';
 import { archDesigns, ArchDesign, DesignType } from '../../data/archintData';
 import '../../../styles/archint.css';
+import { SketchSheetVisualizer } from './SketchSheetVisualizer';
+import { PlanData } from '../../data/plans_rich';
 
 type SortMode = 'best' | 'sqft_asc' | 'sqft_desc' | 'budget_asc' | 'budget_desc';
+
+function adaptDesignToPlan(design: ArchDesign): PlanData {
+  const bedrooms = design.type === 'house'
+    ? (design.sqft < 1500 ? 2 : design.sqft < 2500 ? 3 : design.sqft < 3500 ? 4 : 5)
+    : (design.sqft < 800 ? 1 : design.sqft < 1400 ? 2 : 3);
+  
+  return {
+    id: `apt-res-${design.id}`,
+    type: design.type,
+    title: design.name,
+    category: `${design.floors} Floor ${design.style}`,
+    floors: design.floors,
+    area: design.sqft,
+    cost: design.budget * 100000,
+    bedrooms: bedrooms,
+    bathrooms: bedrooms,
+    balcony: design.balcony ? 'With Balcony' : 'Without Balcony',
+    kitchen: 'Modular Kitchen',
+    dining: 'Combined Living + Dining',
+    parking: design.parking ? 'Yes' : 'No',
+    waterFacility: ['Borewell Sump', 'Underground Sump', 'Overhead Tank', 'Rainwater Harvesting Recharge'],
+    description: design.description,
+    image: design.image,
+    isRecommended: false,
+    pujaRoom: design.type === 'house' && design.sqft > 1800,
+    studyRoom: design.type === 'house' && design.sqft > 2500,
+    utilityRoom: design.type === 'house' && design.sqft > 1500,
+    style: design.style,
+    roofStyle: 'Flat Roof with Sky-Deck & Solar Panels',
+    windowPlacement: 'Floor-to-ceiling Glass Facades (North-East Facing)',
+    balconyStyle: 'Cantilevered Frameless Glass Balcony',
+    interiorLayout: 'Open-concept Living & Dining Great Room',
+    staircaseLocation: 'Internal Floating Steel Foyer Stairs',
+    roomArrangement: 'L-shaped Wing Distribution',
+    kitchenPlacement: 'South-East (Agni corner) Vastu Zone',
+    diningArrangement: 'Combined Open Living + Dining Area',
+    parkingLayout: 'Front Portico Covered Garage',
+    gardenSpace: design.garden ? 'Yes' : 'No',
+    gardenLayout: 'Lush Front Turf Lawn with fountains',
+    vastuPreference: 'East Facing (Vastu Compliant - Surya Entrance)',
+    borewellLocation: 'North-East (Ishanya) corner',
+    undergroundSump: 'East-North-East zone',
+    overheadTank: 'South-West (Nairutya) corner',
+    rainwaterHarvesting: 'Sand-and-carbon twin filtration pits',
+    septicTank: 'North-West (Vayu) boundary wall zone',
+    drainageLayout: 'Slope gradient towards North-East exit drain line',
+    washingArea: 'Rear South-West utility porch',
+  };
+}
 
 export function ArchintResultsPage() {
   const [params] = useSearchParams();
@@ -522,6 +573,14 @@ function DesignModal({
           <p style={{ color: '#94a3b8', fontSize: '15px', lineHeight: 1.8, fontFamily: 'Outfit,sans-serif', marginBottom: '24px' }}>
             {design.description}
           </p>
+
+          {/* Dynamic Architectural Drawing Sheet Sketch */}
+          <div style={{ margin: '32px 0 24px 0' }}>
+            <h4 style={{ fontFamily: 'Outfit,sans-serif', fontSize: '13px', fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.8px', marginBottom: '14px' }}>
+              📐 Dynamic Architectural Drawing Sketch Sheet
+            </h4>
+            <SketchSheetVisualizer plan={adaptDesignToPlan(design)} />
+          </div>
 
           {/* Specs grid */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(120px,1fr))', gap: '12px', marginBottom: '24px' }}>
